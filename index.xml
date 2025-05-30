@@ -6,7 +6,16 @@
     <description>Recent content on Klay&#39;s Blog</description>
     <generator>Hugo -- 0.147.5</generator>
     <language>zh-tw</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 18:00:00 +0800</lastBuildDate>
     <atom:link href="https://klay1014.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>關於我</title>
+      <link>https://klay1014.github.io/about/</link>
+      <pubDate>Fri, 30 May 2025 18:00:00 +0800</pubDate>
+      <guid>https://klay1014.github.io/about/</guid>
+      <description>&lt;p&gt;嗨，我是 Klay 👋&lt;br&gt;
+這是我的個人網站，記錄我在學習、生活、程式、資料科學與胡思亂想中的所見所感。&lt;/p&gt;
+&lt;p&gt;你可以在這裡看到我的文章、筆記與專案，歡迎交流！&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
