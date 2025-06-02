@@ -9,28 +9,38 @@
     <lastBuildDate>Fri, 30 May 2025 22:00:00 +0800</lastBuildDate>
     <atom:link href="https://klay1014.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>從零開始建立我的 Hugo 部落格</title>
+      <title>從 Hugo 到 GitHub Pages：部落格從零開始的記錄</title>
       <link>https://klay1014.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%BF%83%E5%BE%97/</link>
       <pubDate>Fri, 30 May 2025 22:00:00 +0800</pubDate>
       <guid>https://klay1014.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%BF%83%E5%BE%97/</guid>
-      <description>&lt;p&gt;其實我一開始根本不知道 Hugo 是什麼。&lt;/p&gt;
-&lt;p&gt;就是某天突然覺得：「嗯……想弄個部落格來記錄一下東西。」&lt;br&gt;
-然後查了一下，發現 Hugo 是個很熱門的靜態網站產生器，而且搭配 GitHub Pages 就能免費上線。&lt;/p&gt;
-&lt;p&gt;接著就開始踩雷之旅 🤯&lt;/p&gt;
+      <description>&lt;p&gt;老實說，會開始架這個部落格，其實只是因為最近的腦袋有點亂，覺得是時候需要一個地方，好好整理一下自己在學習、工作與生活中不斷累積的東西。&lt;br&gt;
+社群媒體太吵、筆記工具太私密，於是乾脆來開一個自己的網站好了。&lt;/p&gt;
+&lt;p&gt;於是我找到了 Hugo，一個號稱「最快的靜態網站產生器」。一開始其實完全看不懂它的結構，也不知道該從哪下手，但 Google 幾次、撞牆幾次後，大概摸到點門路。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;建立專案&#34;&gt;建立專案&lt;/h2&gt;
-&lt;p&gt;我照官方文件跑 &lt;code&gt;hugo new site myblog&lt;/code&gt;，雖然看起來都 OK，但一開始連要怎麼讓首頁長得好看都不知道。後來才知道要裝主題，我選了 &lt;code&gt;ananke&lt;/code&gt;，還以為裝好就會變有內容，結果空的 🤡&lt;/p&gt;
-&lt;p&gt;後來換成了 &lt;code&gt;PaperMod&lt;/code&gt;，整個視覺和結構清楚很多，也支援暗黑模式，還可以自訂首頁介紹，看起來比較「部落格」。&lt;/p&gt;
+&lt;h2 id=&#34;從終端機開始到網頁出現&#34;&gt;從終端機開始，到網頁出現&lt;/h2&gt;
+&lt;p&gt;跑了 &lt;code&gt;hugo new site myblog&lt;/code&gt;，網站就出現了一個骨架。&lt;br&gt;
+我以為這樣就可以開網頁了，結果當然不可能。還得加主題，還得設定 config，還得理解什麼是 &lt;code&gt;public/&lt;/code&gt;、什麼是 &lt;code&gt;draft&lt;/code&gt;。&lt;br&gt;
+整個流程有點像是：你拿到一張白紙、一支筆、幾行範例，然後被丟到森林裡，要你自己蓋房子。雖然一開始有點懵，但其實也挺好玩的。&lt;/p&gt;
+&lt;p&gt;後來我選了 PaperMod 主題，因為夠簡單、夠乾淨，還可以有個自介和頭像，不會像預設樣板那麼冰冷。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;發佈到-github-pages&#34;&gt;發佈到 GitHub Pages&lt;/h2&gt;
-&lt;p&gt;這邊也卡了一下。一開始我傻傻地把整個專案推上 GitHub，然後發現網頁沒東西。才知道原來要把 &lt;code&gt;public/&lt;/code&gt; 裡面 Hugo build 出來的結果單獨推到 &lt;code&gt;Klay1014.github.io&lt;/code&gt; 這個 repo 才會顯示。&lt;/p&gt;
-&lt;p&gt;GitHub Pages 的設定也得手動設 branch / folder，不設的話會一直看到 404。&lt;/p&gt;
+&lt;h2 id=&#34;發佈比想像中更複雜一點&#34;&gt;發佈，比想像中更複雜一點&lt;/h2&gt;
+&lt;p&gt;Hugo build 出來的內容會被放到 &lt;code&gt;public/&lt;/code&gt; 裡，而 GitHub Pages 要的就是這個資料夾。&lt;br&gt;
+但這代表你不能只把整個 Hugo 專案推上去，而是要另外把 &lt;code&gt;public/&lt;/code&gt; 當成一個 git repo，推到像 &lt;code&gt;Klay1014.github.io&lt;/code&gt; 這種 repo 裡。這邊卡了不少時間。&lt;/p&gt;
+&lt;p&gt;一開始還會遇到一些莫名其妙的 404、CSS 沒載到、主題沒套上，各種「看起來沒錯但就是壞掉」的狀況。&lt;br&gt;
+解法就是慢慢試，慢慢 Google，然後養成一種「出錯也沒關係，總會修好」的肌肉記憶。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;到現在為止&#34;&gt;到現在為止&lt;/h2&gt;
-&lt;p&gt;目前首頁、導覽列、About 頁面都設好了，也寫了這篇文章。還學到怎麼用 &lt;code&gt;menu&lt;/code&gt; 加上導覽列，怎麼關掉 draft，怎麼讓 Markdown 檔出現在網頁上。&lt;/p&gt;
-&lt;p&gt;整體來說 Hugo 蠻快的，但需要花一點時間摸熟配置邏輯。不過，當我第一次看到自己網站成功上線那一刻，真的超爽！&lt;/p&gt;
+&lt;h2 id=&#34;到這裡為止我有了這些&#34;&gt;到這裡為止，我有了這些&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;成功讓網站跑起來（甚至有了自己的首頁、自我介紹、導覽列）&lt;/li&gt;
+&lt;li&gt;學會怎麼寫 Markdown 當文章、怎麼分類、怎麼標籤&lt;/li&gt;
+&lt;li&gt;每次修改後，跑 &lt;code&gt;./deploy.sh&lt;/code&gt; 就能一鍵發佈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這一切雖然很技術，但某種程度上，也很像在整理房間。&lt;br&gt;
+把一堆零散的筆記、想法、碎碎念，變成一個可以讓自己安頓的空間。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;之後可能會繼續加上文章分類、Google Analytics，甚至研究一下留言功能。不知道能不能堅持寫下去，但有個地方可以記錄，是個不錯的開始。&lt;/p&gt;</description>
+&lt;h2 id=&#34;如果你剛好也想寫東西&#34;&gt;如果你剛好也想寫東西&lt;/h2&gt;
+&lt;p&gt;歡迎你一起試試 Hugo。雖然不是最簡單的工具，但它乾淨、快速，而且夠彈性。&lt;/p&gt;
+&lt;p&gt;部落格不是什麼了不起的東西，但如果它能幫助我偶爾停下來，把腦子裡的東西倒一倒，那也很夠了。&lt;/p&gt;</description>
     </item>
     <item>
       <title>關於我</title>

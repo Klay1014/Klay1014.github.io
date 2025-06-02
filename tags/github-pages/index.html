@@ -145,25 +145,29 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">從零開始建立我的 Hugo 部落格
+    <h2 class="entry-hint-parent">從 Hugo 到 GitHub Pages：部落格從零開始的記錄
     </h2>
   </header>
   <div class="entry-content">
-    <p>其實我一開始根本不知道 Hugo 是什麼。
-就是某天突然覺得：「嗯……想弄個部落格來記錄一下東西。」
-然後查了一下，發現 Hugo 是個很熱門的靜態網站產生器，而且搭配 GitHub Pages 就能免費上線。
-接著就開始踩雷之旅 🤯
-建立專案 我照官方文件跑 hugo new site myblog，雖然看起來都 OK，但一開始連要怎麼讓首頁長得好看都不知道。後來才知道要裝主題，我選了 ananke，還以為裝好就會變有內容，結果空的 🤡
-後來換成了 PaperMod，整個視覺和結構清楚很多，也支援暗黑模式，還可以自訂首頁介紹，看起來比較「部落格」。
-發佈到 GitHub Pages 這邊也卡了一下。一開始我傻傻地把整個專案推上 GitHub，然後發現網頁沒東西。才知道原來要把 public/ 裡面 Hugo build 出來的結果單獨推到 Klay1014.github.io 這個 repo 才會顯示。
-GitHub Pages 的設定也得手動設 branch / folder，不設的話會一直看到 404。
-到現在為止 目前首頁、導覽列、About 頁面都設好了，也寫了這篇文章。還學到怎麼用 menu 加上導覽列，怎麼關掉 draft，怎麼讓 Markdown 檔出現在網頁上。
-整體來說 Hugo 蠻快的，但需要花一點時間摸熟配置邏輯。不過，當我第一次看到自己網站成功上線那一刻，真的超爽！
-之後可能會繼續加上文章分類、Google Analytics，甚至研究一下留言功能。不知道能不能堅持寫下去，但有個地方可以記錄，是個不錯的開始。
+    <p>老實說，會開始架這個部落格，其實只是因為最近的腦袋有點亂，覺得是時候需要一個地方，好好整理一下自己在學習、工作與生活中不斷累積的東西。
+社群媒體太吵、筆記工具太私密，於是乾脆來開一個自己的網站好了。
+於是我找到了 Hugo，一個號稱「最快的靜態網站產生器」。一開始其實完全看不懂它的結構，也不知道該從哪下手，但 Google 幾次、撞牆幾次後，大概摸到點門路。
+從終端機開始，到網頁出現 跑了 hugo new site myblog，網站就出現了一個骨架。
+我以為這樣就可以開網頁了，結果當然不可能。還得加主題，還得設定 config，還得理解什麼是 public/、什麼是 draft。
+整個流程有點像是：你拿到一張白紙、一支筆、幾行範例，然後被丟到森林裡，要你自己蓋房子。雖然一開始有點懵，但其實也挺好玩的。
+後來我選了 PaperMod 主題，因為夠簡單、夠乾淨，還可以有個自介和頭像，不會像預設樣板那麼冰冷。
+發佈，比想像中更複雜一點 Hugo build 出來的內容會被放到 public/ 裡，而 GitHub Pages 要的就是這個資料夾。
+但這代表你不能只把整個 Hugo 專案推上去，而是要另外把 public/ 當成一個 git repo，推到像 Klay1014.github.io 這種 repo 裡。這邊卡了不少時間。
+一開始還會遇到一些莫名其妙的 404、CSS 沒載到、主題沒套上，各種「看起來沒錯但就是壞掉」的狀況。
+解法就是慢慢試，慢慢 Google，然後養成一種「出錯也沒關係，總會修好」的肌肉記憶。
+到這裡為止，我有了這些 成功讓網站跑起來（甚至有了自己的首頁、自我介紹、導覽列） 學會怎麼寫 Markdown 當文章、怎麼分類、怎麼標籤 每次修改後，跑 ./deploy.sh 就能一鍵發佈 這一切雖然很技術，但某種程度上，也很像在整理房間。
+把一堆零散的筆記、想法、碎碎念，變成一個可以讓自己安頓的空間。
+如果你剛好也想寫東西 歡迎你一起試試 Hugo。雖然不是最簡單的工具，但它乾淨、快速，而且夠彈性。
+部落格不是什麼了不起的東西，但如果它能幫助我偶爾停下來，把腦子裡的東西倒一倒，那也很夠了。
 </p>
   </div>
   <footer class="entry-footer"><span title='2025-05-30 22:00:00 +0800 CST'>五月 30, 2025</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Klay</footer>
-  <a class="entry-link" aria-label="post link to 從零開始建立我的 Hugo 部落格" href="https://klay1014.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%BF%83%E5%BE%97/"></a>
+  <a class="entry-link" aria-label="post link to 從 Hugo 到 GitHub Pages：部落格從零開始的記錄" href="https://klay1014.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%BF%83%E5%BE%97/"></a>
 </article>
     </main>
     
