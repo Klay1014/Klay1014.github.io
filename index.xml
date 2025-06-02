@@ -6,8 +6,22 @@
     <description>Recent content on Klay&#39;s Blog</description>
     <generator>Hugo -- 0.147.5</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 30 May 2025 22:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://klay1014.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>關於我</title>
+      <link>https://klay1014.github.io/about/</link>
+      <pubDate>Fri, 30 May 2025 23:00:00 +0800</pubDate>
+      <guid>https://klay1014.github.io/about/</guid>
+      <description>&lt;p&gt;嗨，我是 Klay。&lt;/p&gt;
+&lt;p&gt;這裡是我自己的小角落，一個用來放筆記、想法的地方。&lt;br&gt;
+有些東西記在腦袋裡會慢慢淡掉，記下來，或許能留久一點。&lt;/p&gt;
+&lt;p&gt;目前的背景主要跟資料、統計、健康領域有關，但平常也會接觸一些程式、AI、數據視覺化。&lt;br&gt;
+這些都是我覺得有趣的東西，懂得越多，發現自己不懂的越多。&lt;/p&gt;
+&lt;p&gt;我希望這個小角落可以是一種紀錄的方式，也是一種讓自己「整理好」再講出來的練習。&lt;br&gt;
+如果你剛好點進來看到某段文字覺得還不錯，歡迎留言、或就靜靜看看。&lt;/p&gt;
+&lt;p&gt;寫給未來的自己，也寫給有緣看到的人。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>從 Hugo 到 GitHub Pages：部落格從零開始的記錄</title>
       <link>https://klay1014.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%BF%83%E5%BE%97/</link>
@@ -41,15 +55,6 @@
 &lt;h2 id=&#34;如果你剛好也想寫東西&#34;&gt;如果你剛好也想寫東西&lt;/h2&gt;
 &lt;p&gt;歡迎你一起試試 Hugo。雖然不是最簡單的工具，但它乾淨、快速，而且夠彈性。&lt;/p&gt;
 &lt;p&gt;部落格不是什麼了不起的東西，但如果它能幫助我偶爾停下來，把腦子裡的東西倒一倒，那也很夠了。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>關於我</title>
-      <link>https://klay1014.github.io/about/</link>
-      <pubDate>Fri, 30 May 2025 18:00:00 +0800</pubDate>
-      <guid>https://klay1014.github.io/about/</guid>
-      <description>&lt;p&gt;嗨，我是 Klay 👋&lt;br&gt;
-這是我的個人網站，記錄我在學習、生活、程式、資料科學與胡思亂想中的所見所感。&lt;/p&gt;
-&lt;p&gt;你可以在這裡看到我的文章、筆記與專案，歡迎交流！&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://klay1014.github.io/</loc>
+    <lastmod>2025-05-30T23:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://klay1014.github.io/about/</loc>
+    <lastmod>2025-05-30T23:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://klay1014.github.io/categories/</loc>
     <lastmod>2025-05-30T22:00:00+08:00</lastmod>
   </url><url>
@@ -9,9 +15,6 @@
     <lastmod>2025-05-30T22:00:00+08:00</lastmod>
   </url><url>
     <loc>https://klay1014.github.io/tags/hugo/</loc>
-    <lastmod>2025-05-30T22:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://klay1014.github.io/</loc>
     <lastmod>2025-05-30T22:00:00+08:00</lastmod>
   </url><url>
     <loc>https://klay1014.github.io/posts/</loc>
@@ -28,8 +31,5 @@
   </url><url>
     <loc>https://klay1014.github.io/categories/%E5%AF%AB%E4%BD%9C%E7%B4%80%E9%8C%84/</loc>
     <lastmod>2025-05-30T22:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://klay1014.github.io/about/</loc>
-    <lastmod>2025-05-30T18:00:00+08:00</lastmod>
   </url>
 </urlset>
