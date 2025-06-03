@@ -13,35 +13,7 @@
       <link>https://klay1014.github.io/posts/excel-attendance-analysis/</link>
       <pubDate>Tue, 03 Jun 2025 17:00:00 +0800</pubDate>
       <guid>https://klay1014.github.io/posts/excel-attendance-analysis/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle&lt;/p&gt;
-&lt;p&gt;👉 &lt;a href=&#34;https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download&#34;&gt;Kaggle 資料集下載連結&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;轉換前的資料長什麼樣&#34;&gt;轉換前的資料長什麼樣？&lt;/h2&gt;
-&lt;p&gt;一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：&lt;/p&gt;
-&lt;p&gt;有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。&lt;/p&gt;
-&lt;p&gt;於是我做的第一件事是把它轉成「可分析的長表格式」，也就是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;每一列都是「日期 + 員工代碼 + 上班時間 + 狀態」&lt;/li&gt;
-&lt;li&gt;狀態會標記為「準時」、「遲到」、「缺卡」&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;這件事我用 VBA 一次跑完，轉出總筆數是 71,200，比預期少了 1,900 筆，
-後來才發現那是 12 月底幾天的資料原本就空白，讓我更確信「資料檢查永遠該是第一步」。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;接下來我從這些資料中試著拉出一些簡單的指標&#34;&gt;接下來，我從這些資料中試著拉出一些簡單的指標：&lt;/h2&gt;
-&lt;h3 id=&#34;-員工遲到排行榜&#34;&gt;✅ 員工遲到排行榜&lt;/h3&gt;
-&lt;p&gt;使用樞紐分析計算每個人「遲到」的總次數，再進一步做 Top 10 排名。
-有些人遲到次數超過 700，幾乎天天遲到。這個榜單的意義其實不光是針對員工本身，對於管理者來說，也是一種績效與風氣的觀察依據。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;-每月遲到人數趨勢圖&#34;&gt;✅ 每月遲到人數趨勢圖&lt;/h3&gt;
-&lt;p&gt;我把狀態限定為「遲到」，然後用「月份」為欄位，拉出一張趨勢圖。
-可以看出整體上班風氣算穩定，但在 2024 年 12 月有明顯下降，調查之後才發現該月資料只到 12/12，數據不完整。&lt;/p&gt;
-&lt;p&gt;這也是視覺化的一個意義——它會逼你去發現異常，從而回到資料源頭重新檢查。&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;每月遲到人數&#34; loading=&#34;lazy&#34; src=&#34;https://klay1014.github.io/images/late_by_month.png&#34;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;-平均上班時間排行&#34;&gt;✅ 平均上班時間排行&lt;/h3&gt;
-&lt;p&gt;將打卡時間轉換成分鐘（例如 08:45 就是 525），使用 &lt;code&gt;HOUR()*60 + MINUTE()&lt;/code&gt; 實作，然後再用「平均值」來比較員工們的上班習慣。&lt;/p&gt;</description>
+      <description>從 Kaggle 打卡資料開始，使用 Excel 進行資料清理、長表轉換、樞紐分析與視覺化的完整紀錄</description>
     </item>
     <item>
       <title>關於我</title>
@@ -62,34 +34,7 @@
       <link>https://klay1014.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%BF%83%E5%BE%97/</link>
       <pubDate>Fri, 30 May 2025 22:00:00 +0800</pubDate>
       <guid>https://klay1014.github.io/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%BF%83%E5%BE%97/</guid>
-      <description>&lt;p&gt;老實說，會開始架這個部落格，其實只是因為最近的腦袋有點亂，覺得是時候需要一個地方，好好整理一下自己在學習、工作與生活中不斷累積的東西。&lt;br&gt;
-社群媒體太吵、筆記工具太私人，於是乾脆來開一個自己的網站好了。&lt;/p&gt;
-&lt;p&gt;因此我找到了 Hugo，一個號稱「最快的靜態網站產生器」。一開始其實完全看不懂它的結構，也不知道該從哪下手，但 Google 幾次、撞牆幾次後，大概摸到點門路。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;從終端機開始到網頁出現&#34;&gt;從終端機開始，到網頁出現&lt;/h2&gt;
-&lt;p&gt;跑了 &lt;code&gt;hugo new site myblog&lt;/code&gt;，網站就出現了一個骨架。&lt;br&gt;
-我以為這樣就可以開網頁了，結果當然不可能。還得加主題，還得設定 config，還得理解什麼是 &lt;code&gt;public/&lt;/code&gt;、什麼是 &lt;code&gt;draft&lt;/code&gt;。&lt;br&gt;
-整個流程有點像是：你拿到一張白紙、一支筆、幾行範例，然後被丟到森林裡，要你自己蓋房子。雖然一開始有點懵，但其實也挺好玩的。&lt;/p&gt;
-&lt;p&gt;後來我選了 PaperMod 主題，因為夠簡單、夠乾淨，還可以有個自介和頭像，不會像預設樣板那麼冰冷。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;發佈比想像中更複雜一點&#34;&gt;發佈，比想像中更複雜一點&lt;/h2&gt;
-&lt;p&gt;Hugo build 出來的內容會被放到 &lt;code&gt;public/&lt;/code&gt; 裡，而 GitHub Pages 要的就是這個資料夾。&lt;br&gt;
-但這代表你不能只把整個 Hugo 專案推上去，而是要另外把 &lt;code&gt;public/&lt;/code&gt; 當成一個 git repo，推到像 &lt;code&gt;Klay1014.github.io&lt;/code&gt; 這種 repo 裡。這邊卡了不少時間。&lt;/p&gt;
-&lt;p&gt;一開始還會遇到一些莫名其妙的 404、CSS 沒載到、主題沒套上，各種「看起來沒錯但就是壞掉」的狀況。&lt;br&gt;
-解法就是慢慢試，慢慢 Google，然後養成一種「出錯也沒關係，總會修好」的肌肉記憶。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;到這裡為止我有了這些&#34;&gt;到這裡為止，我有了這些&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;成功讓網站跑起來（甚至有了自己的首頁、自我介紹、導覽列）&lt;/li&gt;
-&lt;li&gt;學會怎麼寫 Markdown 當文章、怎麼分類、怎麼標籤&lt;/li&gt;
-&lt;li&gt;每次修改後，跑 &lt;code&gt;./deploy.sh&lt;/code&gt; 就能一鍵發佈&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;這一切雖然很技術，但某種程度上，也很像在整理房間。&lt;br&gt;
-把一堆零散的筆記、想法、碎碎念，變成一個可以讓自己安頓的空間。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;如果你剛好也想寫東西&#34;&gt;如果你剛好也想寫東西&lt;/h2&gt;
-&lt;p&gt;歡迎你一起試試 Hugo。雖然不是最簡單的工具，但它乾淨、快速，而且夠彈性。&lt;/p&gt;
-&lt;p&gt;部落格不是什麼了不起的東西，但如果它能幫助我偶爾停下來，把腦子裡的東西倒一倒，那也很夠了。&lt;/p&gt;</description>
+      <description>用 Hugo 架設部落格的過程筆記，從終端機到 GitHub Pages，自學實作的踩坑與心得。</description>
     </item>
   </channel>
 </rss>
