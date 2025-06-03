@@ -13,8 +13,7 @@
       <link>https://klay1014.github.io/posts/excel-attendance-analysis/</link>
       <pubDate>Tue, 03 Jun 2025 17:00:00 +0800</pubDate>
       <guid>https://klay1014.github.io/posts/excel-attendance-analysis/</guid>
-      <description>&lt;hr&gt;
-&lt;p&gt;有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle&lt;/p&gt;
+      <description>&lt;p&gt;有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download&#34;&gt;https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;下載一份包含-731-個日期100-位員工的全年打卡資料數量達-73100-筆拿來練習常見功能例如-vba-展開長表轉換與樞紐分析&#34;&gt;下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。&lt;/h2&gt;
 &lt;p&gt;一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：&lt;/p&gt;

@@ -7,8 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Excel 打卡資料分析實作心得：從 Real data 整理出 Insights | Klay&#39;s Blog</title>
 <meta name="keywords" content="Excel, 資料視覺化, VBA, 樞紐分析">
-<meta name="description" content="
-有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle
+<meta name="description" content="有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle
 https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download
 下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。
 一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：
@@ -84,7 +83,7 @@ https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=dow
 </noscript><meta property="og:url" content="https://klay1014.github.io/posts/excel-attendance-analysis/">
   <meta property="og:site_name" content="Klay&#39;s Blog">
   <meta property="og:title" content="Excel 打卡資料分析實作心得：從 Real data 整理出 Insights">
-  <meta property="og:description" content=" 有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle
+  <meta property="og:description" content="有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle
 https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download
 下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。 一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：
 有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。
@@ -105,8 +104,7 @@ https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=dow
     <meta property="article:tag" content="樞紐分析">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Excel 打卡資料分析實作心得：從 Real data 整理出 Insights">
-<meta name="twitter:description" content="
-有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle
+<meta name="twitter:description" content="有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle
 https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download
 下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。
 一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：
@@ -160,11 +158,11 @@ https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=dow
   "@type": "BlogPosting",
   "headline": "Excel 打卡資料分析實作心得：從 Real data 整理出 Insights",
   "name": "Excel 打卡資料分析實作心得：從 Real data 整理出 Insights",
-  "description": " 有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle\nhttps://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download\n下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。 一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：\n有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。\n於是我做的第一件事是把它轉成「可分析的長表格式」，也就是：\n每一列都是「日期 + 員工代碼 + 上班時間 + 狀態」 狀態會標記為「準時」、「遲到」、「缺卡」 這件事我用 VBA 一次跑完，轉出總筆數是 71,200，比預期少了 1,900 筆， 後來才發現那是 12 月底幾天的資料原本就空白，讓我更確信「資料檢查永遠該是第一步」。\n接下來，我從這些資料中試著拉出一些簡單的指標： ✅ 員工遲到排行榜 使用樞紐分析計算每個人「遲到」的總次數，再進一步做 Top 10 排名。 有些人遲到次數超過 700，幾乎天天遲到。這個榜單的意義其實不光是針對員工本身，對於管理者來說，也是一種績效與風氣的觀察依據。\n✅ 每月遲到人數趨勢圖 我把狀態限定為「遲到」，然後用「月份」為欄位，拉出一張趨勢圖。 可以看出整體上班風氣算穩定，但在 2024 年 12 月有明顯下降，調查之後才發現該月資料只到 12/12，數據不完整。\n這也是視覺化的一個意義——它會逼你去發現異常，從而回到資料源頭重新檢查。\n✅ 平均上班時間排行 將打卡時間轉換成分鐘（例如 08:45 就是 525），使用 HOUR()*60 + MINUTE() 實作，然後再用「平均值」來比較員工們的上班習慣。\n",
+  "description": "有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle\nhttps://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download\n下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。 一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：\n有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。\n於是我做的第一件事是把它轉成「可分析的長表格式」，也就是：\n每一列都是「日期 + 員工代碼 + 上班時間 + 狀態」 狀態會標記為「準時」、「遲到」、「缺卡」 這件事我用 VBA 一次跑完，轉出總筆數是 71,200，比預期少了 1,900 筆， 後來才發現那是 12 月底幾天的資料原本就空白，讓我更確信「資料檢查永遠該是第一步」。\n接下來，我從這些資料中試著拉出一些簡單的指標： ✅ 員工遲到排行榜 使用樞紐分析計算每個人「遲到」的總次數，再進一步做 Top 10 排名。 有些人遲到次數超過 700，幾乎天天遲到。這個榜單的意義其實不光是針對員工本身，對於管理者來說，也是一種績效與風氣的觀察依據。\n✅ 每月遲到人數趨勢圖 我把狀態限定為「遲到」，然後用「月份」為欄位，拉出一張趨勢圖。 可以看出整體上班風氣算穩定，但在 2024 年 12 月有明顯下降，調查之後才發現該月資料只到 12/12，數據不完整。\n這也是視覺化的一個意義——它會逼你去發現異常，從而回到資料源頭重新檢查。\n✅ 平均上班時間排行 將打卡時間轉換成分鐘（例如 08:45 就是 525），使用 HOUR()*60 + MINUTE() 實作，然後再用「平均值」來比較員工們的上班習慣。\n",
   "keywords": [
     "Excel", "資料視覺化", "VBA", "樞紐分析"
   ],
-  "articleBody": " 有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle\nhttps://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download\n下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。 一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：\n有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。\n於是我做的第一件事是把它轉成「可分析的長表格式」，也就是：\n每一列都是「日期 + 員工代碼 + 上班時間 + 狀態」 狀態會標記為「準時」、「遲到」、「缺卡」 這件事我用 VBA 一次跑完，轉出總筆數是 71,200，比預期少了 1,900 筆， 後來才發現那是 12 月底幾天的資料原本就空白，讓我更確信「資料檢查永遠該是第一步」。\n接下來，我從這些資料中試著拉出一些簡單的指標： ✅ 員工遲到排行榜 使用樞紐分析計算每個人「遲到」的總次數，再進一步做 Top 10 排名。 有些人遲到次數超過 700，幾乎天天遲到。這個榜單的意義其實不光是針對員工本身，對於管理者來說，也是一種績效與風氣的觀察依據。\n✅ 每月遲到人數趨勢圖 我把狀態限定為「遲到」，然後用「月份」為欄位，拉出一張趨勢圖。 可以看出整體上班風氣算穩定，但在 2024 年 12 月有明顯下降，調查之後才發現該月資料只到 12/12，數據不完整。\n這也是視覺化的一個意義——它會逼你去發現異常，從而回到資料源頭重新檢查。\n✅ 平均上班時間排行 將打卡時間轉換成分鐘（例如 08:45 就是 525），使用 HOUR()*60 + MINUTE() 實作，然後再用「平均值」來比較員工們的上班習慣。\n結果顯示，多數人集中在 535～540 分鐘，也就是 08:55～08:60 之間；最早與最晚的員工之間差了將近半小時。\n✅ 條件格式視覺化 這邊我用 Excel 的色階功能，讓平均上班時間越長的員工越偏紅、越短的員工偏綠。\n不需要文字說明，一眼就能辨識，誰總是待最久，誰總在公司時間最短。\n小結：Excel 不只是報表工具，它是資料的翻譯器 很多人說，Excel 不過是拿來整理表格、畫圖表的工具。 但對我來說，當我們能從幾萬筆資料中抽絲剝繭， 慢慢做出「原來這個人總是遲到 5 分鐘」「12 月為什麼數據特別少」「平均最早到的員工不是績效最高的」 這些推論 挖掘出這些原本藏在行列裡的 Insights，Excel 的角色就不只是工具，而是說故事的語言。\n如果你也剛好在練習 Excel 這是一個很值得開始的專案。你可以用來練習：\n長表資料轉換技巧（VBA or Power Query） 條件判斷公式（IF、HOUR、MINUTE） 樞紐分析表設計與交叉分析 資料清理與視覺化呈現（條件格式 / 趨勢圖） 下一步我會想嘗試 不同情境下的 VBA 來幫助處理重複性質的任務 😎\n如果你有興趣，也歡迎留言交流。\n",
+  "articleBody": "有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle\nhttps://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download\n下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。 一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：\n有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。\n於是我做的第一件事是把它轉成「可分析的長表格式」，也就是：\n每一列都是「日期 + 員工代碼 + 上班時間 + 狀態」 狀態會標記為「準時」、「遲到」、「缺卡」 這件事我用 VBA 一次跑完，轉出總筆數是 71,200，比預期少了 1,900 筆， 後來才發現那是 12 月底幾天的資料原本就空白，讓我更確信「資料檢查永遠該是第一步」。\n接下來，我從這些資料中試著拉出一些簡單的指標： ✅ 員工遲到排行榜 使用樞紐分析計算每個人「遲到」的總次數，再進一步做 Top 10 排名。 有些人遲到次數超過 700，幾乎天天遲到。這個榜單的意義其實不光是針對員工本身，對於管理者來說，也是一種績效與風氣的觀察依據。\n✅ 每月遲到人數趨勢圖 我把狀態限定為「遲到」，然後用「月份」為欄位，拉出一張趨勢圖。 可以看出整體上班風氣算穩定，但在 2024 年 12 月有明顯下降，調查之後才發現該月資料只到 12/12，數據不完整。\n這也是視覺化的一個意義——它會逼你去發現異常，從而回到資料源頭重新檢查。\n✅ 平均上班時間排行 將打卡時間轉換成分鐘（例如 08:45 就是 525），使用 HOUR()*60 + MINUTE() 實作，然後再用「平均值」來比較員工們的上班習慣。\n結果顯示，多數人集中在 535～540 分鐘，也就是 08:55～08:60 之間；最早與最晚的員工之間差了將近半小時。\n✅ 條件格式視覺化 這邊我用 Excel 的色階功能，讓平均上班時間越長的員工越偏紅、越短的員工偏綠。\n不需要文字說明，一眼就能辨識，誰總是待最久，誰總在公司時間最短。\n小結：Excel 不只是報表工具，它是資料的翻譯器 很多人說，Excel 不過是拿來整理表格、畫圖表的工具。 但對我來說，當我們能從幾萬筆資料中抽絲剝繭， 慢慢做出「原來這個人總是遲到 5 分鐘」「12 月為什麼數據特別少」「平均最早到的員工不是績效最高的」 這些推論 挖掘出這些原本藏在行列裡的 Insights，Excel 的角色就不只是工具，而是說故事的語言。\n如果你也剛好在練習 Excel 這是一個很值得開始的專案。你可以用來練習：\n長表資料轉換技巧（VBA or Power Query） 條件判斷公式（IF、HOUR、MINUTE） 樞紐分析表設計與交叉分析 資料清理與視覺化呈現（條件格式 / 趨勢圖） 下一步我會想嘗試 不同情境下的 VBA 來幫助處理重複性質的任務 😎\n如果你有興趣，也歡迎留言交流。\n",
   "wordCount" : "112",
   "inLanguage": "zh",
   "datePublished": "2025-06-03T17:00:00+08:00",
@@ -269,8 +267,7 @@ https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=dow
 
 </div>
   </header> 
-  <div class="post-content"><hr>
-<p>有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle</p>
+  <div class="post-content"><p>有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle</p>
 <p><a href="https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download">https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download</a></p>
 <h2 id="下載一份包含-731-個日期100-位員工的全年打卡資料數量達-73100-筆拿來練習常見功能例如-vba-展開長表轉換與樞紐分析">下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。<a hidden class="anchor" aria-hidden="true" href="#下載一份包含-731-個日期100-位員工的全年打卡資料數量達-73100-筆拿來練習常見功能例如-vba-展開長表轉換與樞紐分析">#</a></h2>
 <p>一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：</p>
