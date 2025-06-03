@@ -4,6 +4,11 @@
     <title>Posts on Klay&#39;s Blog</title>
     <link>https://klay1014.github.io/posts/</link>
     <description>Recent content in Posts on Klay&#39;s Blog</description>
+    <image>
+      <title>Klay&#39;s Blog</title>
+      <url>https://klay1014.github.io/images/favicon.png</url>
+      <link>https://klay1014.github.io/images/favicon.png</link>
+    </image>
     <generator>Hugo -- 0.147.5</generator>
     <language>zh-tw</language>
     <lastBuildDate>Tue, 03 Jun 2025 17:00:00 +0800</lastBuildDate>
