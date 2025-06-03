@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>VBA on Klay&#39;s Blog</title>
+    <link>https://klay1014.github.io/tags/vba/</link>
+    <description>Recent content in VBA on Klay&#39;s Blog</description>
+    <generator>Hugo -- 0.147.5</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 03 Jun 2025 17:00:00 +0800</lastBuildDate>
+    <atom:link href="https://klay1014.github.io/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Excel 打卡資料分析實作心得：從 Real data 整理出 Insights</title>
+      <link>https://klay1014.github.io/posts/excel-attendance-analysis/</link>
+      <pubDate>Tue, 03 Jun 2025 17:00:00 +0800</pubDate>
+      <guid>https://klay1014.github.io/posts/excel-attendance-analysis/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download&#34;&gt;https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。&lt;/p&gt;
+&lt;p&gt;一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：&lt;/p&gt;
+&lt;p&gt;有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。&lt;/p&gt;
+&lt;p&gt;於是我做的第一件事是把它轉成「可分析的長表格式」，也就是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每一列都是「日期 + 員工代碼 + 上班時間 + 狀態」&lt;/li&gt;
+&lt;li&gt;狀態會標記為「準時」、「遲到」、「缺卡」&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這件事我用 VBA 一次跑完，轉出總筆數是 71,200，比預期少了 1,900 筆，
+後來才發現那是 12 月底幾天的資料原本就空白，讓我更確信「資料檢查永遠該是第一步」。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;接下來我從這些資料中試著拉出一些簡單的指標&#34;&gt;接下來，我從這些資料中試著拉出一些簡單的指標：&lt;/h2&gt;
+&lt;h3 id=&#34;-員工遲到排行榜&#34;&gt;✅ 員工遲到排行榜&lt;/h3&gt;
+&lt;p&gt;使用樞紐分析計算每個人「遲到」的總次數，再進一步做 Top 10 排名。
+有些人遲到次數超過 700，幾乎天天遲到。這個榜單的意義其實不光是針對員工本身，對於管理者來說，也是一種績效與風氣的觀察依據。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-每月遲到人數趨勢圖&#34;&gt;✅ 每月遲到人數趨勢圖&lt;/h3&gt;
+&lt;p&gt;我把狀態限定為「遲到」，然後用「月份」為欄位，拉出一張趨勢圖。
+可以看出整體上班風氣算穩定，但在 2024 年 12 月有明顯下降，調查之後才發現該月資料只到 12/12，數據不完整。&lt;/p&gt;
+&lt;p&gt;這也是視覺化的一個意義——它會逼你去發現異常，從而回到資料源頭重新檢查。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;每月遲到人數&#34; loading=&#34;lazy&#34; src=&#34;insert-your-image-path.png&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-平均上班時間排行&#34;&gt;✅ 平均上班時間排行&lt;/h3&gt;
+&lt;p&gt;將打卡時間轉換成分鐘（例如 08:45 就是 525），使用 &lt;code&gt;HOUR()*60 + MINUTE()&lt;/code&gt; 實作，然後再用「平均值」來比較員工們的上班習慣。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

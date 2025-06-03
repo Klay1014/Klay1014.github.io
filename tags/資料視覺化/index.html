@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Categories | Klay&#39;s Blog</title>
+<title>資料視覺化 | Klay&#39;s Blog</title>
 <meta name="keywords" content="">
 <meta name="description" content="分享我的筆記與觀點">
 <meta name="author" content="Klay">
-<link rel="canonical" href="https://klay1014.github.io/categories/">
+<link rel="canonical" href="https://klay1014.github.io/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://klay1014.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://klay1014.github.io/favicon-16x16.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="https://klay1014.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://klay1014.github.io/categories/index.xml">
-<link rel="alternate" hreflang="zh" href="https://klay1014.github.io/categories/">
+<link rel="alternate" type="application/rss+xml" href="https://klay1014.github.io/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/index.xml">
+<link rel="alternate" hreflang="zh" href="https://klay1014.github.io/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,14 +56,14 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://klay1014.github.io/categories/">
+</noscript><meta property="og:url" content="https://klay1014.github.io/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/">
   <meta property="og:site_name" content="Klay&#39;s Blog">
-  <meta property="og:title" content="Categories">
+  <meta property="og:title" content="資料視覺化">
   <meta property="og:description" content="分享我的筆記與觀點">
   <meta property="og:locale" content="zh-tw">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Categories">
+<meta name="twitter:title" content="資料視覺化">
 <meta name="twitter:description" content="分享我的筆記與觀點">
 
 </head>
@@ -125,7 +125,7 @@
             </li>
             <li>
                 <a href="https://klay1014.github.io/categories/" title="分類">
-                    <span class="active">分類</span>
+                    <span>分類</span>
                 </a>
             </li>
             <li>
@@ -136,19 +136,35 @@
         </ul>
     </nav>
 </header>
-<main class="main">
-<header class="page-header">
-    <h1>Categories</h1>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://klay1014.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://klay1014.github.io/tags/">Tags</a></div>
+  <h1>
+    資料視覺化
+  </h1>
 </header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="https://klay1014.github.io/categories/%E5%AF%AB%E4%BD%9C%E7%B4%80%E9%8C%84/">寫作紀錄 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://klay1014.github.io/categories/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90%E7%B4%80%E9%8C%84/">資料分析紀錄 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Excel 打卡資料分析實作心得：從 Real data 整理出 Insights
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 有鑒於 Excel 是很常見的分析工具，也不難上手，這次就嘗試做一個有感的實作：從 Kaggle
+https://www.kaggle.com/datasets/yasirub/employee-attendance-ratings?resource=download
+下載一份包含 731 個日期、100 位員工的全年打卡資料（數量達 73,100 筆），拿來練習常見功能，例如 VBA 展開、長表轉換與樞紐分析。
+一開始，第一眼就被那張 731 x 101 的巨型試算表震懾了。這些數據裡，每一格都記錄著一個人的上下班時間：
+有人早上 08:43 就打卡、也有人總是 09:18 才出現；有些則忘記沒打到卡。
+於是我做的第一件事是把它轉成「可分析的長表格式」，也就是：
+每一列都是「日期 &#43; 員工代碼 &#43; 上班時間 &#43; 狀態」 狀態會標記為「準時」、「遲到」、「缺卡」 這件事我用 VBA 一次跑完，轉出總筆數是 71,200，比預期少了 1,900 筆， 後來才發現那是 12 月底幾天的資料原本就空白，讓我更確信「資料檢查永遠該是第一步」。
+接下來，我從這些資料中試著拉出一些簡單的指標： ✅ 員工遲到排行榜 使用樞紐分析計算每個人「遲到」的總次數，再進一步做 Top 10 排名。 有些人遲到次數超過 700，幾乎天天遲到。這個榜單的意義其實不光是針對員工本身，對於管理者來說，也是一種績效與風氣的觀察依據。
+✅ 每月遲到人數趨勢圖 我把狀態限定為「遲到」，然後用「月份」為欄位，拉出一張趨勢圖。 可以看出整體上班風氣算穩定，但在 2024 年 12 月有明顯下降，調查之後才發現該月資料只到 12/12，數據不完整。
+這也是視覺化的一個意義——它會逼你去發現異常，從而回到資料源頭重新檢查。
+✅ 平均上班時間排行 將打卡時間轉換成分鐘（例如 08:45 就是 525），使用 HOUR()*60 &#43; MINUTE() 實作，然後再用「平均值」來比較員工們的上班習慣。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-06-03 17:00:00 +0800 CST'>六月 3, 2025</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Klay</footer>
+  <a class="entry-link" aria-label="post link to Excel 打卡資料分析實作心得：從 Real data 整理出 Insights" href="https://klay1014.github.io/posts/excel-attendance-analysis/"></a>
+</article>
     </main>
     
 <footer class="footer">
