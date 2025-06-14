@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>0050 on Klay&#39;s Blog</title>
+    <link>https://klay1014.github.io/tags/0050/</link>
+    <description>Recent content in 0050 on Klay&#39;s Blog</description>
+    <image>
+      <title>Klay&#39;s Blog</title>
+      <url>https://klay1014.github.io/images/favicon.png</url>
+      <link>https://klay1014.github.io/images/favicon.png</link>
+    </image>
+    <generator>Hugo -- 0.147.5</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 13 Jun 2025 22:00:00 +0800</lastBuildDate>
+    <atom:link href="https://klay1014.github.io/tags/0050/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0050 配息資料自動抓取與整理</title>
+      <link>https://klay1014.github.io/posts/yuanta-0050-dividend/</link>
+      <pubDate>Fri, 13 Jun 2025 22:00:00 +0800</pubDate>
+      <guid>https://klay1014.github.io/posts/yuanta-0050-dividend/</guid>
+      <description>透過 Python 連接元大基金 API，自動化抓取 0050 ETF 的歷年配息紀錄，並轉存為資料表以利後續分析。</description>
+    </item>
+  </channel>
+</rss>
