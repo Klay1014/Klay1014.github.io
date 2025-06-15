@@ -122,8 +122,8 @@
   "keywords": [
     "LSTM", "股價預測", "Python", "yfinance", "深度學習"
   ],
-  "articleBody": "title: “0050 LSTM 收盤價預測紀錄” date: 2025-06-15T14:30:00+08:00 tags: [LSTM, 股價預測, 時間序列, 0050, yfinance, Python] draft: false 這篇紀錄我最近用 LSTM 預測 0050（元大台灣卓越 50 ETF）收盤價的嘗試過程，主要目的是看看能不能靠技術指標輔助、讓 LSTM 模型學出合理的趨勢。過程中試了不同的預測目標和資料處理方法，最終還是決定回歸原始的 close 價。\n資料來源與前處理 資料使用 yfinance 抓取 2005～2025 的 0050 日線資料：\ndf = yf.download(\"0050.TW\", start=\"2005-01-01\", end=\"2025-06-06\") 先確認資料大致形式，畫出時間變化的折線圖\n接著加上幾個常見技術指標：\nOBV (On-Balance Volume)：用成交量追蹤價格趨勢 MFI (Money Flow Index)：結合成交量與價格變動的震盪指標 Volume SMA (5 日均線)：平滑成交量波動 這些欄位都轉成 float 型別，並移除空值。\nfeatures = ['Open', 'Close', 'OBV', 'MFI', 'Volume', 'Volume_SMA_5'] df = df[features].dropna() 特徵正規化與序列建立 採用 MinMaxScaler 對所有特徵進行 0～1 正規化。之後將資料轉為以過去 30 天資料預測未來 1 天 close 價的序列格式：\nSEQ_LEN = 30 X, y = create_sequences(scaled, SEQ_LEN) 訓練測試集比例為 80:20，確保模型能在近年資料做出推論。\nLSTM 模型架構 模型結構維持簡單：\nLSTM(64) Dropout(0.2) Dense(32 relu) Dense(1) model = Sequential([ LSTM(64, input_shape=(30, 6), return_sequences=False), Dropout(0.2), Dense(32, activation='relu'), Dense(1) ]) 訓練 50 epochs，batch size 為 32。\n預測結果 結果圖如下： 模型在測試集上的預測如下圖所示：\n雖然高點仍偏低估，但整體趨勢與轉折點已抓得不錯，尤其在 2010～2020 年這段預測相對貼近。\n評估指標 📊 Evaluation Metrics: ✅ MSE = 117.2363 ✅ MAE = 9.8407 ✅ R² = 0.8894 MSE 和 MAE 表現還可以接受，R² 達到 0.88 算是不錯，代表模型能解釋大部分變異。\n總結與想法 曾經試過用報酬率 (return) 作為預測目標，但發現反而會讓模型難以收斂或爆炸，預測圖非常不合理。因此還是回到直接預測 close 價，表現最穩定。\n接下來如果有時間會考慮：\n多加一層 LSTM 增加更多技術指標（例如 MACD 或 RSI） 嘗試 Transformer 類結構 這次就先紀錄到這，方便下次繼續接著試。\n",
-  "wordCount" : "159",
+  "articleBody": "這篇紀錄我最近用 LSTM 預測 0050（元大台灣卓越 50 ETF）收盤價的嘗試過程，主要目的是看看能不能靠價格數量指標輔助、讓 LSTM 模型學出合理的趨勢。過程中試了不同的預測目標（收盤價\u0026報酬率）和資料處理方法，最終還是決定回歸原始的 收盤價 。\n資料來源與前處理 資料使用 yfinance 抓取 2005～2025 的 0050 日線資料：\ndf = yf.download(\"0050.TW\", start=\"2005-01-01\", end=\"2025-06-06\") 先確認資料大致形式，畫出時間變化的折線圖\n接著加上幾個常見技術指標：\nOBV (On-Balance Volume)：用成交量追蹤價格趨勢 MFI (Money Flow Index)：結合成交量與價格變動的震盪指標 Volume SMA (5 日均線)：平滑成交量波動 這些欄位都轉成 float 型別，並移除空值。\nfeatures = ['Open', 'Close', 'OBV', 'MFI', 'Volume', 'Volume_SMA_5'] df = df[features].dropna() 特徵正規化與序列建立 採用 MinMaxScaler 對所有特徵進行 0～1 正規化。之後將資料轉為以過去 30 天資料預測未來 1 天 close 價的序列格式：\nSEQ_LEN = 30 X, y = create_sequences(scaled, SEQ_LEN) 訓練測試集比例為 80:20，確保模型能在近年資料做出推論。\n除了 MinMaxScaler，也曾嘗試使用 StandardScaler（均值為 0、標準差為 1 的標準化方式）。結果發現雖然在測試集前半段表現還不錯，但進入近年的高波動區間後，預測結果容易失真。特別是遇到急漲急跌的區段，預測值會呈現「跟不上變化」的情形，儘管轉折方向有時正確，但變化量偏平緩，整體效果不如使用 MinMaxScaler 來得穩定。\nLSTM 模型架構 模型結構維持簡單：\nLSTM(64) Dropout(0.2) Dense(32 relu) Dense(1) model = Sequential([ LSTM(64, input_shape=(30, 6), return_sequences=False), Dropout(0.2), Dense(32, activation='relu'), Dense(1) ]) 訓練 50 epochs，batch size 為 32。\n預測結果 結果圖如下： 模型在測試集上的預測如下圖所示：\n雖然高點仍偏低估，但整體趨勢與轉折點已抓得不錯，尤其在 2010～2020 年這段預測相對貼近。\n評估指標 📊 Evaluation Metrics: ✅ MSE = 117.2363 ✅ MAE = 9.8407 ✅ R² = 0.8894 MSE 和 MAE 表現還可以接受，R² 達到 0.88 算是不錯，代表模型能解釋大部分變異。\n總結與想法 曾經試過用報酬率 (return) 作為預測目標，但發現反而會讓模型難以收斂或爆炸，預測圖非常不合理。因此還是回到直接預測 close 價，表現最穩定。\n接下來如果有時間會考慮：\n多加一層 LSTM 增加更多技術指標（例如 MACD 或 RSI） 嘗試 Transformer 類結構 這次就先紀錄到這，方便下次繼續接著試。\n",
+  "wordCount" : "152",
   "inLanguage": "zh",
   "image": "https://klay1014.github.io/images/favicon.png","datePublished": "2025-06-15T13:30:00+08:00",
   "dateModified": "2025-06-15T13:30:00+08:00",
@@ -237,8 +237,6 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#title-0050-lstm-%e6%94%b6%e7%9b%a4%e5%83%b9%e9%a0%90%e6%b8%ac%e7%b4%80%e9%8c%84-date-2025-06-15t1430000800-tags-lstm-%e8%82%a1%e5%83%b9%e9%a0%90%e6%b8%ac-%e6%99%82%e9%96%93%e5%ba%8f%e5%88%97-0050-yfinance-python-draft-false" aria-label="title: &ldquo;0050 LSTM 收盤價預測紀錄&rdquo; date: 2025-06-15T14:30:00&#43;08:00 tags: [LSTM, 股價預測, 時間序列, 0050, yfinance, Python] draft: false">title: &ldquo;0050 LSTM 收盤價預測紀錄&rdquo; date: 2025-06-15T14:30:00+08:00 tags: [LSTM, 股價預測, 時間序列, 0050, yfinance, Python] draft: false</a></li>
-                <li>
                     <a href="#%e8%b3%87%e6%96%99%e4%be%86%e6%ba%90%e8%88%87%e5%89%8d%e8%99%95%e7%90%86" aria-label="資料來源與前處理">資料來源與前處理</a></li>
                 <li>
                     <a href="#%e7%89%b9%e5%be%b5%e6%ad%a3%e8%a6%8f%e5%8c%96%e8%88%87%e5%ba%8f%e5%88%97%e5%bb%ba%e7%ab%8b" aria-label="特徵正規化與序列建立">特徵正規化與序列建立</a></li>
@@ -256,8 +254,7 @@
     </details>
 </div>
 
-  <div class="post-content"><h2 id="title-0050-lstm-收盤價預測紀錄-date-2025-06-15t1430000800-tags-lstm-股價預測-時間序列-0050-yfinance-python-draft-false">title: &ldquo;0050 LSTM 收盤價預測紀錄&rdquo; date: 2025-06-15T14:30:00+08:00 tags: [LSTM, 股價預測, 時間序列, 0050, yfinance, Python] draft: false<a hidden class="anchor" aria-hidden="true" href="#title-0050-lstm-收盤價預測紀錄-date-2025-06-15t1430000800-tags-lstm-股價預測-時間序列-0050-yfinance-python-draft-false">#</a></h2>
-<p>這篇紀錄我最近用 LSTM 預測 0050（元大台灣卓越 50 ETF）收盤價的嘗試過程，主要目的是看看能不能靠技術指標輔助、讓 LSTM 模型學出合理的趨勢。過程中試了不同的預測目標和資料處理方法，最終還是決定回歸原始的 close 價。</p>
+  <div class="post-content"><p>這篇紀錄我最近用 LSTM 預測 0050（元大台灣卓越 50 ETF）收盤價的嘗試過程，主要目的是看看能不能靠價格數量指標輔助、讓 LSTM 模型學出合理的趨勢。過程中試了不同的預測目標（收盤價&amp;報酬率）和資料處理方法，最終還是決定回歸原始的 收盤價 。</p>
 <h2 id="資料來源與前處理">資料來源與前處理<a hidden class="anchor" aria-hidden="true" href="#資料來源與前處理">#</a></h2>
 <p>資料使用 <code>yfinance</code> 抓取 2005～2025 的 0050 日線資料：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> yf<span style="color:#f92672">.</span>download(<span style="color:#e6db74">&#34;0050.TW&#34;</span>, start<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2005-01-01&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2025-06-06&#34;</span>)
@@ -277,6 +274,8 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>SEQ_LEN <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
 </span></span><span style="display:flex;"><span>X, y <span style="color:#f92672">=</span> create_sequences(scaled, SEQ_LEN)
 </span></span></code></pre></div><p>訓練測試集比例為 80:20，確保模型能在近年資料做出推論。</p>
+<blockquote>
+<p>除了 MinMaxScaler，也曾嘗試使用 StandardScaler（均值為 0、標準差為 1 的標準化方式）。結果發現雖然在測試集前半段表現還不錯，但進入近年的高波動區間後，預測結果容易失真。特別是遇到急漲急跌的區段，預測值會呈現「跟不上變化」的情形，儘管轉折方向有時正確，但變化量偏平緩，整體效果不如使用 MinMaxScaler 來得穩定。</p></blockquote>
 <h2 id="lstm-模型架構">LSTM 模型架構<a hidden class="anchor" aria-hidden="true" href="#lstm-模型架構">#</a></h2>
 <p>模型結構維持簡單：</p>
 <ul>
