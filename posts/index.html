@@ -177,6 +177,24 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">使用 LSTM 預測 0050 收盤價：從嘗試錯誤中找到穩定策略
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>title: “0050 LSTM 收盤價預測紀錄” date: 2025-06-15T14:30:00&#43;08:00 tags: [LSTM, 股價預測, 時間序列, 0050, yfinance, Python] draft: false 這篇紀錄我最近用 LSTM 預測 0050（元大台灣卓越 50 ETF）收盤價的嘗試過程，主要目的是看看能不能靠技術指標輔助、讓 LSTM 模型學出合理的趨勢。過程中試了不同的預測目標和資料處理方法，最終還是決定回歸原始的 close 價。
+資料來源與前處理 資料使用 yfinance 抓取 2005～2025 的 0050 日線資料：
+df = yf.download(&#34;0050.TW&#34;, start=&#34;2005-01-01&#34;, end=&#34;2025-06-06&#34;) 先確認資料大致形式，畫出時間變化的折線圖
+接著加上幾個常見技術指標：
+OBV (On-Balance Volume)：用成交量追蹤價格趨勢 MFI (Money Flow Index)：結合成交量與價格變動的震盪指標 Volume SMA (5 日均線)：平滑成交量波動 這些欄位都轉成 float 型別，並移除空值。
+features = [&#39;Open&#39;, &#39;Close&#39;, &#39;OBV&#39;, &#39;MFI&#39;, &#39;Volume&#39;, &#39;Volume_SMA_5&#39;] df = df[features].dropna() 特徵正規化與序列建立 採用 MinMaxScaler 對所有特徵進行 0～1 正規化。之後將資料轉為以過去 30 天資料預測未來 1 天 close 價的序列格式：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-06-15 13:30:00 +0800 CST'>六月 15, 2025</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Klay</footer>
+  <a class="entry-link" aria-label="post link to 使用 LSTM 預測 0050 收盤價：從嘗試錯誤中找到穩定策略" href="https://klay1014.github.io/posts/0050_lstm_prediction/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">0050 配息資料自動抓取與整理
     </h2>
   </header>

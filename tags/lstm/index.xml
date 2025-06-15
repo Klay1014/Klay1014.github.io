@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LSTM on Klay&#39;s Blog</title>
+    <link>https://klay1014.github.io/tags/lstm/</link>
+    <description>Recent content in LSTM on Klay&#39;s Blog</description>
+    <image>
+      <title>Klay&#39;s Blog</title>
+      <url>https://klay1014.github.io/images/favicon.png</url>
+      <link>https://klay1014.github.io/images/favicon.png</link>
+    </image>
+    <generator>Hugo -- 0.147.5</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 15 Jun 2025 13:30:00 +0800</lastBuildDate>
+    <atom:link href="https://klay1014.github.io/tags/lstm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 LSTM 預測 0050 收盤價：從嘗試錯誤中找到穩定策略</title>
+      <link>https://klay1014.github.io/posts/0050_lstm_prediction/</link>
+      <pubDate>Sun, 15 Jun 2025 13:30:00 +0800</pubDate>
+      <guid>https://klay1014.github.io/posts/0050_lstm_prediction/</guid>
+      <description>記錄我用 LSTM 模型預測 0050 收盤價的過程與心得，包括模型設計、指標加入、失敗經驗與最終穩定策略</description>
+    </item>
+  </channel>
+</rss>
